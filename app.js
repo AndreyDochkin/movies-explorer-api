@@ -11,7 +11,7 @@ const NotFoundError = require('./errors/NotFoundError');
 const errorHandler = require('./middlewares/errorHandler');
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const { PORT, MONGO_URI = 'mongodb://127.0.0.1:27017/bitfilmsdb' } = require('./config');
+const { PORT, MONGO_URI } = require('./config');
 const corsConfig = require('./utils/corsConfig');
 const limiter = require('./utils/rateLimitConfig');
 
@@ -38,7 +38,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(usersRouter);
 app.use(moviesRouter);
 
-// Handle not found errors
+// Handle not disributed routes
 app.use('*', (req, res, next) => {
   next(new NotFoundError('Page not found'));
 });
