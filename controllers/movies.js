@@ -4,9 +4,12 @@ const BadRequest = require('../errors/BadRequest ');
 const NotFoundError = require('../errors/NotFoundError');
 const Forbidden = require('../errors/Forbidden');
 
-const getAllMovies = (req, res, next) => {
+const getMoviesUserSaved  = (req, res, next) => {
   Movie.find({})
-    .then((allMovies) => res.status(200).send({ data: allMovies }))
+    .then((allMovies) => {
+      const movies = allMovies.map((movie) => movie.owner.toString() === req.user._id);
+      res.status(200).send({ data: movies });
+    })
     .catch(next);
 };
 
@@ -74,7 +77,7 @@ const deleteMovie = (req, res, next) => {
 };
 
 module.exports = {
-  getAllMovies,
+  getMoviesUserSaved,
   createMovie,
   deleteMovie,
 };

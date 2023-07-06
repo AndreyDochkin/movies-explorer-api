@@ -8,12 +8,12 @@ const {
 } = require('../middlewares/validateJoi');
 
 const {
-  getAllMovies,
+  getMoviesUserSaved,
   createMovie,
   deleteMovie,
 } = require('../controllers/movies');
 
-router.get('/movies', getAllMovies);
+router.get('/movies', getMoviesUserSaved);
 router.post('/movies', validateMovieBody, createMovie);
 router.delete('/movies/:movieId', validateMovieId, deleteMovie);
 
