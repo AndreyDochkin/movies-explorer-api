@@ -19,13 +19,7 @@ MovieMatchup is a web application built with Node.js, React, and Express that al
 - **Login Page**: Log into MovieMatchup.
 - **Profile Editing Page**: Edit account details.
 
-## Technologies Used
-
-- Node.js: Backend runtime environment.
-- React: Frontend JavaScript library for building user interfaces.
-- Express: Backend framework for building web applications.
-
-Адрес репозитория: https://github.com/AndreyDochkin/movies-explorer-api
+Repo link: https://github.com/AndreyDochkin/movies-explorer-api
 
 ## Links
 
