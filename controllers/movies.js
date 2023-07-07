@@ -4,7 +4,7 @@ const BadRequest = require('../errors/BadRequest ');
 const NotFoundError = require('../errors/NotFoundError');
 const Forbidden = require('../errors/Forbidden');
 
-const getMoviesUserSaved  = (req, res, next) => {
+const getMoviesUserSaved = (req, res, next) => {
   Movie.find({})
     .then((allMovies) => {
       const movies = allMovies.map((movie) => movie.owner.toString() === req.user._id);

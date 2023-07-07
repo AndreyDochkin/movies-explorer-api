@@ -59,8 +59,9 @@ const createUser = (req, res, next) => {
     });
 };
 
-const updateUser = (req, res, next, newData) => {
+const updateUserData = (req, res, next, newData) => {
   const { user } = req;
+
   User.findByIdAndUpdate(user._id, newData, { new: true, runValidators: true })
     .orFail(() => {
       next(new NotFoundError('User not found'));
@@ -70,15 +71,18 @@ const updateUser = (req, res, next, newData) => {
       if (err instanceof mongoose.Error.ValidationError
         || err instanceof mongoose.Error.CastError) {
         next(new BadRequest('Invalid user data provided'));
+      } else if (err.code === MONGO_DUMPLICATE_KEY) {
+        next(new Conflict('Name or email is already exists'));
       } else {
         next(err);
       }
     });
 };
 
-const updateUserData = (req, res, next) => {
+const updateUser = (req, res, next) => {
   const { name, email } = req.body;
-  updateUser(req, res, next, { name, email });
+  updateUserData(req, res, next, { name });
+  updateUserData(req, res, next, { email });
 };
 
 const loginUser = (req, res, next) => {
@@ -102,5 +106,5 @@ module.exports = {
   createUser,
   loginUser,
   getCurrentUser,
-  updateUserData,
+  updateUser,
 };

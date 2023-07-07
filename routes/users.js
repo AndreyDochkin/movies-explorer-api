@@ -14,7 +14,7 @@ const {
   createUser,
   loginUser,
   getCurrentUser,
-  updateUserData,
+  updateUser,
 } = require('../controllers/users');
 
 router.post('/signup', validateUserBody, createUser);
@@ -23,6 +23,6 @@ router.post('/signin', validateLoginBody, loginUser);
 router.use(auth);
 
 router.get('/users/me', getCurrentUser);
-router.patch('/users/me', validateUserData, updateUserData);
+router.patch('/users/me', validateUserData, updateUser);
 
 module.exports = router;
