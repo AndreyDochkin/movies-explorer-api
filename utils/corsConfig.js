@@ -7,7 +7,7 @@ const corsConfig = {
     'http://moviematchup.nomoreparties.sbs',
     'https://moviematchup.nomoreparties.sbs',
   ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 };
