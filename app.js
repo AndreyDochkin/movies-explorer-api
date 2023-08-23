@@ -21,7 +21,21 @@ const app = express();
 app.use(requestLogger);
 
 // Enable CORS
-app.use(cors(corsConfig));
+// app.use(cors(corsConfig));
+
+// app.use(cors({
+//   origin: [
+//     'https://localhost:3000',
+//     'http://localhost:3000',
+//     'http://picventures.nomoreparties.sbs',
+//     'https://picventures.nomoreparties.sbs',
+//     'http://api.picventures.nomoreparties.sbs',
+//     'https://api.picventures.nomoreparties.sbs',
+//   ],
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD'],
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+//   credentials: true,
+// }));
 
 // Set security headers
 app.use(helmet());
