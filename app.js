@@ -32,7 +32,7 @@ app.use(cors({
     'http://api.moviematchup.nomoreparties.sbs',
     'https://api.moviematchup.nomoreparties.sbs',
   ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 }));
