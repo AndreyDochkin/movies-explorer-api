@@ -7,7 +7,7 @@ const Forbidden = require('../errors/Forbidden');
 const getMoviesUserSaved = (req, res, next) => {
   Movie.find({})
     .then((allMovies) => {
-      const movies = allMovies.map((movie) => movie.owner.toString() === req.user._id);
+      const movies = allMovies.filter((movie) => movie.owner.toString() === req.user._id);
       res.status(200).send({ data: movies });
     })
     .catch(next);
@@ -21,7 +21,7 @@ const createMovie = (req, res, next) => {
     year,
     description,
     image,
-    trailer,
+    trailerLink,
     nameRU,
     nameEN,
     thumbnail,
@@ -37,7 +37,7 @@ const createMovie = (req, res, next) => {
     year,
     description,
     image,
-    trailer,
+    trailerLink,
     nameRU,
     nameEN,
     thumbnail,

@@ -24,19 +24,14 @@ app.use(requestLogger);
 // app.use(cors(corsConfig));
 
 app.use(cors({
-  origin: [
+  // origin:'*'
+  [
     'https://localhost:3000',
     'http://localhost:3000',
-    'https://www.localhost:3000',
-    'http://www.localhost:3000',
     'http://moviematchup.nomoreparties.sbs',
     'https://moviematchup.nomoreparties.sbs',
     'http://api.moviematchup.nomoreparties.sbs',
     'https://api.moviematchup.nomoreparties.sbs',
-    'http://www.moviematchup.nomoreparties.sbs',
-    'https://www.moviematchup.nomoreparties.sbs',
-    'http://www.api.moviematchup.nomoreparties.sbs',
-    'https://www.api.moviematchup.nomoreparties.sbs',
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
