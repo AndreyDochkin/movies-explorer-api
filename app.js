@@ -25,7 +25,7 @@ app.use(requestLogger);
 
 app.use(cors({
   // origin:'*'
-  [
+  origin: [
     'https://localhost:3000',
     'http://localhost:3000',
     'http://moviematchup.nomoreparties.sbs',
