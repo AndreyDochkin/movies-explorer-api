@@ -17,12 +17,6 @@ const limiter = require('./utils/rateLimitConfig');
 
 const app = express();
 
-// Log incoming requests
-app.use(requestLogger);
-
-// Enable CORS
-// app.use(cors(corsConfig));
-
 app.use(cors({
   // origin: '*',
   origin: [
@@ -38,14 +32,8 @@ app.use(cors({
   credentials: true,
 }));
 
-// app.use(cors());
-
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   next();
-// });
-
-// Set security headers
+// Log incoming requests
+app.use(requestLogger);
 
 // Apply rate limiting
 // app.use(limiter);
