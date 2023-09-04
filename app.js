@@ -38,7 +38,28 @@ app.use(requestLogger);
 //   credentials: true,
 // }));
 
-app.use(cors());
+// app.use(cors());
+
+const allowedOrigins = [
+  'https://localhost:3000',
+  'http://localhost:3000',
+  'http://moviematchup.nomoreparties.sbs',
+  'https://moviematchup.nomoreparties.sbs',
+  'http://api.moviematchup.nomoreparties.sbs',
+  'https://api.moviematchup.nomoreparties.sbs'];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Проверяем, есть ли origin в списке разрешенных доменов
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Разрешенные HTTP методы
+  allowedHeaders: 'Content-Type,Authorization', // Разрешенные заголовки
+}));
 
 // Set security headers
 app.use(helmet());
