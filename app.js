@@ -42,7 +42,7 @@ app.use(cors({
 app.use(helmet());
 
 // Apply rate limiting
-app.use(limiter);
+// app.use(limiter);
 
 // Parse JSON request bodies
 app.use(express.json());
