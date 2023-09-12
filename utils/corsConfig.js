@@ -2,12 +2,12 @@ const corsConfig = {
   origin: [
     'https://localhost:3000',
     'http://localhost:3000',
-    'http://api.moviematchup.nomoreparties.sbs',
-    'https://api.moviematchup.nomoreparties.sbs',
     'http://moviematchup.nomoreparties.sbs',
     'https://moviematchup.nomoreparties.sbs',
+    'http://api.moviematchup.nomoreparties.sbs',
+    'https://api.moviematchup.nomoreparties.sbs',
   ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 };

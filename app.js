@@ -17,26 +17,15 @@ const limiter = require('./utils/rateLimitConfig');
 
 const app = express();
 
-app.use(cors({
-  // origin: '*',
-  origin: [
-    'https://localhost:3000',
-    'http://localhost:3000',
-    'http://moviematchup.nomoreparties.sbs',
-    'https://moviematchup.nomoreparties.sbs',
-    'http://api.moviematchup.nomoreparties.sbs',
-    'https://api.moviematchup.nomoreparties.sbs',
-  ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-}));
+app.use(cors(corsConfig));
 
 // Log incoming requests
 app.use(requestLogger);
 
+app.use(helmet());
+
 // Apply rate limiting
-// app.use(limiter);
+app.use(limiter);
 
 // Parse JSON request bodies
 app.use(express.json());
