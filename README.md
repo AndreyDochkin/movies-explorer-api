@@ -19,12 +19,10 @@ MovieMatchup is a web application built with Node.js, React, and Express that al
 - **Login Page**: Log into MovieMatchup.
 - **Profile Editing Page**: Edit account details.
 
-Repo link: https://github.com/AndreyDochkin/movies-explorer-api
-
 ## Links
 
-IP 84.201.139.139
-
-Frontend https://api.moviematchup.nomoreparties.sbs
+Frontend https://moviematchup.nomoreparties.sbs/
+Repo link: https://github.com/AndreyDochkin/movies-explorer-frontend
 
 Backend https://api.moviematchup.nomoreparties.sbs
+Repo link: https://github.com/AndreyDochkin/movies-explorer-api
